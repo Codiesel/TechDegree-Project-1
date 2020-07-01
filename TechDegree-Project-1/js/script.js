@@ -73,8 +73,26 @@ function getRandomQuote(arr) {
 /***
  * `printQuote` function
 ***/
-
-
+function printQuote(arr) {
+  let rndQuote = getRandomQuote(quotes);
+      if (rndQuote.track) {
+         let quoteString = document.getElementById('quote-box').innerHTML =
+             `<p class="quote"> ${rndQuote.quote} </p>
+              <p class="source"> ${rndQuote.source}<span class="citation"> ${rndQuote.citation},</span><span class="track"> ${rndQuote.track}</span><span class="year"> ${rndQuote.year}</span></p>`
+       } else if (rndQuote.citation === undefined && rndQuote.year === undefined) {
+         let quoteString = document.getElementById('quote-box').innerHTML =
+             `<p class="quote"> ${rndQuote.quote} </p>
+              <p class="source"> ${rndQuote.source}</p>`
+       } else if (rndQuote.citation === undefined) {
+         let quoteString = document.getElementById('quote-box').innerHTML =
+             `<p class="quote"> ${rndQuote.quote} </p>
+              <p class="source"> ${rndQuote.source}<span class="year"> ${rndQuote.year}</span></p>`
+       } else {
+         let quoteString = document.getElementById('quote-box').innerHTML =
+             `<p class="quote"> ${rndQuote.quote} </p>
+              <p class="source"> ${rndQuote.source}<span class="citation"> ${rndQuote.citation}</span></p>`
+       }
+}
 
 /***
  * click event listener for the print quote button
