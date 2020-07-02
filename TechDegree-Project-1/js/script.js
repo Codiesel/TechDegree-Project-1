@@ -66,7 +66,7 @@ const quotes = [
  * `getRandomQuote` function
 ***/
 function getRandomQuote(arr) {
-  return getRandomQuote(Math.floor(Math.random * quotes.length))
+  return quotes[Math.floor(Math.random() * quotes.length)];
 }
 
 
